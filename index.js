@@ -17,6 +17,7 @@ async function runLeofame() {
     console.log('[Task 1] Starting Leofame automation...');
     const browser = await puppeteer.launch({
         headless: true,
+        executablePath: puppeteer.executablePath(),
         args: [
             '--no-sandbox', 
             '--disable-setuid-sandbox', 
@@ -65,6 +66,7 @@ async function runSmmHub() {
     console.log('[Task 2] Starting SMM-Hub automation...');
     const browser = await puppeteer.launch({
         headless: true,
+        executablePath: puppeteer.executablePath(),
         args: [
             '--no-sandbox', 
             '--disable-setuid-sandbox', 
