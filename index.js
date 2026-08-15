@@ -37,7 +37,7 @@ async function runLeofame() {
         await page.goto('https://leofame.com/free-tiktok-likes', { waitUntil: 'networkidle2' });
         
         await page.waitForSelector('input', { timeout: 15000 });
-        await page.type('input', 'https://vt.tiktok.com/ZSVNLu9Uy/');
+        await page.type('input', 'https://vt.tiktok.com/ZSVNLu9Uy/', { delay: 100 });
         
         const clicked = await page.evaluate(() => {
             const buttons = Array.from(document.querySelectorAll('button'));
@@ -89,12 +89,12 @@ async function runSmmHub() {
         
         const emailInput = await page.$('input[type="email"]');
         if (emailInput) {
-            await emailInput.type('faisalalkhatib9@gmail.com');
+            await emailInput.type('faisalalkhatib9@gmail.com', { delay: 100 });
         }
 
         const textInputs = await page.$$('input[type="text"]');
         if (textInputs.length > 0) {
-            await textInputs[textInputs.length - 1].type('https://vt.tiktok.com/ZSVNLu9Uy/');
+            await textInputs[textInputs.length - 1].type('https://vt.tiktok.com/ZSVNLu9Uy/', { delay: 100 });
         }
 
         const checkbox = await page.$('input[type="checkbox"]');
