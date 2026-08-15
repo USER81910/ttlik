@@ -17,7 +17,17 @@ async function runLeofame() {
     console.log('[Task 1] Starting Leofame automation...');
     const browser = await puppeteer.launch({
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        channel: 'chrome',
+        args: [
+            '--no-sandbox', 
+            '--disable-setuid-sandbox', 
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--no-first-run',
+            '--no-zygote',
+            '--single-process',
+            '--disable-gpu'
+        ]
     });
 
     try {
@@ -26,7 +36,7 @@ async function runLeofame() {
 
         await page.goto('https://leofame.com/free-tiktok-likes', { waitUntil: 'networkidle2' });
         
-        await page.waitForSelector('input', { timeout: 10000 });
+        await page.waitForSelector('input', { timeout: 15000 });
         await page.type('input', 'https://vt.tiktok.com/ZSVNLu9Uy/');
         
         // Find and click the submit button by its text content
@@ -57,7 +67,17 @@ async function runSmmHub() {
     console.log('[Task 2] Starting SMM-Hub automation...');
     const browser = await puppeteer.launch({
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        channel: 'chrome',
+        args: [
+            '--no-sandbox', 
+            '--disable-setuid-sandbox', 
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--no-first-run',
+            '--no-zygote',
+            '--single-process',
+            '--disable-gpu'
+        ]
     });
 
     try {
@@ -66,7 +86,7 @@ async function runSmmHub() {
 
         await page.goto('https://smm-hub.com/en/free_checkout/index/tiktok_likes_free', { waitUntil: 'networkidle2' });
 
-        await page.waitForSelector('input[type="email"], input', { timeout: 10000 });
+        await page.waitForSelector('input[type="email"], input', { timeout: 15000 });
         
         const emailInput = await page.$('input[type="email"]');
         if (emailInput) {
