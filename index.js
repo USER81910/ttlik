@@ -17,7 +17,6 @@ async function runLeofame() {
     console.log('[Task 1] Starting Leofame automation...');
     const browser = await puppeteer.launch({
         headless: true,
-        channel: 'chrome',
         args: [
             '--no-sandbox', 
             '--disable-setuid-sandbox', 
@@ -39,7 +38,6 @@ async function runLeofame() {
         await page.waitForSelector('input', { timeout: 15000 });
         await page.type('input', 'https://vt.tiktok.com/ZSVNLu9Uy/');
         
-        // Find and click the submit button by its text content
         const clicked = await page.evaluate(() => {
             const buttons = Array.from(document.querySelectorAll('button'));
             const targetButton = buttons.find(b => b.innerText.includes('Get free Likes'));
@@ -67,7 +65,6 @@ async function runSmmHub() {
     console.log('[Task 2] Starting SMM-Hub automation...');
     const browser = await puppeteer.launch({
         headless: true,
-        channel: 'chrome',
         args: [
             '--no-sandbox', 
             '--disable-setuid-sandbox', 
@@ -103,7 +100,6 @@ async function runSmmHub() {
             await checkbox.click();
         }
 
-        // Find and click the submit button by its text content
         const clicked = await page.evaluate(() => {
             const buttons = Array.from(document.querySelectorAll('button'));
             const targetButton = buttons.find(b => b.innerText.includes('Get for free'));
